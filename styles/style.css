@@ -96,7 +96,7 @@ img {
 .container {
     max-width: 1068px;
     margin: auto;
-    width: 40%;
+    width: 50%;
 
 }
 
@@ -160,12 +160,20 @@ header {
 }
 
 
-#cart-icon {
+#cart-icon{
     position: absolute;
     font-size: 1.8rem;
     margin-left: 8px;
     margin-top: 8px;
+}
 
+#close-cart {
+    position: absolute;
+    top: 1rem;
+    right: 0.8rem;
+    font-size: 1rem;
+    color: var(-- text-color);
+    cursor: pointer;
 }
 
 .cart-bg {
@@ -299,7 +307,7 @@ header {
 .cart {
     position: fixed;
     top: 0;
-    right: 0;
+    right: -360px;
     width: 360px;
     min-height: 100vh;
     padding: 20px;
@@ -309,8 +317,17 @@ header {
     transition: 0.4s;
 }
 
-.cart:active {
+
+.cart.active {
     right: 0;
+}
+
+.cart-quantity{
+    border:1px solid var(-- text-color);
+    outline-color:var(-- main-color);
+    width:2.4rem;
+    text-align:center;
+    font-size:1rem;
 }
 
 .cart h2 {
@@ -344,6 +361,12 @@ header {
     height: 100px;
     object-fit: contain;
     padding: 10px;
+    border-right: 1px solid rgb(137, 137, 137);
+}
+
+.cart-product-title{
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
 .detail-box {

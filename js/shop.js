@@ -1,10 +1,8 @@
 function shop() {
   mostrarProductos();
 
-
   // swal de ofertas
   const nodoBtnOfertas = document.querySelector("#btnOfertas");
-
 
   nodoBtnOfertas.addEventListener("click", () => {
     Swal.fire("¡Lo siento!", "Aún no tenemos ofertas para tí...", "info");
@@ -19,9 +17,6 @@ function shop() {
       pProducto.innerHTML = `
                     <div class="product-box">
                         <img src="../img/${producto.id}.jpg" alt="${producto.nombre}" class="product-img card-image" loading="lazy" onerror="this.onerror=null; this.src='../img/noimage.png'">
-
-
-
                     </div>
                     <div class="card-info">
                         <h2 class="product-title">${producto.nombre}</h2>
@@ -53,48 +48,92 @@ function shop() {
       cotizacion.append(venta);
     });
 
-
-    // Acá quise realizar un link personalizado que tendría que tomar los valores del array del carrito para poder modificar los producto.nombre para realizar la consulta
+  // Acá quise realizar un link personalizado que tendría que tomar los valores del array del carrito para poder modificar los producto.nombre para realizar la consulta
   var whatsappButtonJS = document.getElementById("whatsappButton");
   const wspButton = document.createElement("a");
   wspButton.innerHTML = `<a href="https://api.whatsapp.com/send/?phone=xxxx&text=Hola, me gustaría saber si aún tienen stock de este producto: ${productos[0].nombre}"
   target="_blank" class="menu"> <i class="fi-rr-smartphone"></i> Contactanos</a> `;
 
   whatsappButtonJS.append(wspButton);
-}
 
-// Cart Working JS
-if (document.readyState == "loading") {
-  document.addEventListener("DOMContentLoaded", ready);
-} else {
-  ready();
-}
 
-function ready() {
-  // Remove Items From Cart
-  var removeCartButton = document.getElementsByClassName("cart-remove");
-  console.log(removeCartButton);
-  for (var i = 0; i < removeCartButton.length; i++) {
-    var button = removeCartButton[i];
-    button.addEventListener("click", removeCartItem);
+
+
+
+    // TODO EL CART
+  // Cart
+  let cartIcon = document.querySelector("#cart-button");
+  let cart = document.querySelector(".cart");
+  let closeCart = document.querySelector("#close-cart");
+  // Open Cart
+  cartIcon.onclick = () => {
+    cart.classList.add("active");
+    console.log("abierto");
+  };
+  // Close Cart
+  closeCart.onclick = () => {
+    cart.classList.remove("active");
+    console.log("cerrar");
+  };
+
+  // Cart Working JS
+  if (document.readyState == "loading") {
+    document.addEventListener("DOMContentLoaded", ready);
+  } else {
+    ready();
+  }
+
+  // Hasta aca funciona
+
+  function ready() {
+    // Remove Items From Cart
+    var removeCartButton = document.getElementsByClassName("cart-remove");
+    console.log(removeCartButton);
+    for (var i = 0; i < removeCartButton.length; i++) {
+      var button = removeCartButton[i];
+      button.addEventListener("click", removeCartItem);
+    }
+
+    // Actualizar cantidad
+    var quantityInputs = document.getElementsByClassName("cart-quantity");
+    for (var i = 0; i < quantityInputs.length; i++) {
+      var input = quantityInputs[i];
+      input.addEventListener("change", quantityChanged);
+    }
+  }
+
+  // Quantity Changes
+  function quantityChanged(event) {
+    var input = event.target;
+    if (NaN(input.value) || input.value <= 0) {
+      input.value = 1;
+    }
+    updatetotal();
+  }
+
+  //Remove Items fromm cart
+  function removeCartItem(event) {
+    var buttonClicked = event.target;
+    buttonClicked.parentElement.remove();
+    updatetotal();
+  }
+
+  // Update Total
+  function updatetotal() {
+    var cartContent = document.getElementsByClassName("cart-content")[0];
+    var cartBoxes = cartContent.getElementsByClassName("cart-box");
+    var total = 0;
+    for (var i = 0; i < cartBoxes.length; i++) {
+      var cartBox = cartBoxes[i];
+      var priceElement = cartBox.getElementsByClassName("cart-price")[0];
+      var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
+      var price = parseFloat(priceElement.innerText.replace("$", ""));
+      var quantity = quantityElement.value;
+      total = total + price * quantity;
+
+      document.getElementsByClassName(
+        ("total-price"[0].innerHTML = "$" + total)
+      );
+    }
   }
 }
-
-function removeCartItem(event) {
-  var buttonClicked = event.target;
-  buttonClicked.parentElement.remove();
-}
-
-
-// Cart
-let cartIcon=document.querySelector("#cart-icon");
-let cart=document.querySelector(".cart");
-let closeCart=document.querySelector("#close-cart");
-// Open Cart
-cartIcon.onclick=()=>{
-  cart.classList.add("active");
-};
-// Close Cart
-closeCart.onclick=()=>{
-  cart.classList.remove("active");
-};
