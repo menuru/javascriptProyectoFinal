@@ -244,13 +244,14 @@ header {
     /* Fixes the starting points of the image to be on all 4 corners. */
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     /* Makes the image maintain its aspect ratio while filling the up entire card. */
     opacity: .8;
     /* Making the image slightly transparent so that it blends with the card background. */
     transition: transform .75s;
     /* Adds a transition over .75 seconds on the transform property (the scaling). */
-
+    padding: 10px;
+    background-color: white;
 }
 
 .product-with-title:hover .card-image {
