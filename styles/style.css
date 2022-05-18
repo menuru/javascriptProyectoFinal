@@ -79,7 +79,7 @@ a {
 }
 
 a.tienda:hover {
-    background-color: black;
+    background-color: rgb(89, 0, 255);
     color: white;
 }
 
@@ -132,7 +132,7 @@ header {
     border-bottom-right-radius: 10px;
 }
 
-.nav {
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -142,12 +142,13 @@ header {
 
 .menu {
     border: 1px solid black;
-    padding: 0.5rem;
+    padding: 1rem;
     margin: 1rem;
     font-weight: 800;
     font-variant-caps: petite-caps;
     text-decoration: none;
     border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
     font-variant-caps: petite-caps;
     transition-duration: 0.4s;
     user-select: none;
@@ -159,37 +160,22 @@ header {
     color: white;
 }
 
-
-#cart-icon{
-    position: absolute;
-    border: 2px solid black;
+.cart-icon{
+    font-size: 1.5rem;
 }
+
+
 
 #close-cart {
     position: absolute;
     top: 1rem;
     right: 0.8rem;
     font-size: 1rem;
-    color: var(-- text-color);
+    color: black;
     cursor: pointer;
 }
 
-.cart-bg {
-    position: fixed;
-    cursor: pointer;
-    width: 120px;
-    height: 120px;
-    border-radius: 100%;
-    border: 2px solid black;
-    transition-duration: 0.4s;
 
-}
-
-.cart-bg:hover {
-    background-color: #000000;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-    color: white;
-}
 
 .section-title {
     font-variant-caps: all-petite-caps;
@@ -403,6 +389,7 @@ header {
     font-weight: 500;
     cursor: pointer;
     border: 1px solid black;
+    transition: 0.5s;
 
 }
 

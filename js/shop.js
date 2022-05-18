@@ -42,7 +42,7 @@ function shop() {
 
       // console.log(precioTotal); // Para verificar que realmente esté funcionando la lógica de calcular el valor en pesos uruguayos
 
-      const venta = document.createElement("div");
+      var venta = document.createElement("div");
       venta.innerHTML = `<h5>Valor del dolar actualmente:</h5><p class='price'>UY $${precioVenta}</p>`;
 
       cotizacion.append(venta);
