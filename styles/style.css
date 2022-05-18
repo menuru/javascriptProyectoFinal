@@ -96,7 +96,7 @@ img {
 .container {
     max-width: 1068px;
     margin: auto;
-    width: 50%;
+    width: 80%;
 
 }
 
@@ -142,8 +142,8 @@ header {
 
 .menu {
     border: 1px solid black;
-    padding: 1vh;
-    margin: 2vh;
+    padding: 0.5rem;
+    margin: 1rem;
     font-weight: 800;
     font-variant-caps: petite-caps;
     text-decoration: none;
@@ -162,9 +162,7 @@ header {
 
 #cart-icon{
     position: absolute;
-    font-size: 1.8rem;
-    margin-left: 8px;
-    margin-top: 8px;
+    border: 2px solid black;
 }
 
 #close-cart {
@@ -177,10 +175,11 @@ header {
 }
 
 .cart-bg {
+    position: fixed;
     cursor: pointer;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
     border: 2px solid black;
     transition-duration: 0.4s;
 
