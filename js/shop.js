@@ -122,11 +122,13 @@ function shop() {
   function updatetotal() {
     var cartContent = document.getElementsByClassName("cart-content")[0];
     var cartBoxes = cartContent.getElementsByClassName("cart-box");
+    var cartDetails = cartBoxes.getElementsByClassName("detail-box")
+
     var total = 0;
-    for (var i = 0; i < cartBoxes.length; i++) {
-      var cartBox = cartBoxes[i];
-      var priceElement = cartBox.getElementsByClassName("cart-price")[0];
-      var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
+    for (var i = 0; i < cartDetails.length; i++) {
+      var cartDetail = cartDetails[i];
+      var priceElement = cartDetails.getElementsByClassName("cart-price")[0];
+      var quantityElement = cartDetails.getElementsByClassName("cart-quantity")[0];
       var price = parseFloat(priceElement.innerText.replace("$", ""));
       var quantity = quantityElement.value;
       total = total + price * quantity;
@@ -136,4 +138,20 @@ function shop() {
       );
     }
   }
+
+
+
+
+  localStorage.setItem('bienvenida', '¡Hola Code!');
+  localStorage.setItem('esValido', true);
+  localStorage.setItem('unNumero', 20);
+
+
+  let mensaje =  localStorage.getItem('bienvenida');
+  let bandera =  localStorage.getItem('esValido');
+  let numero  =  localStorage.getItem('unNumero');
+
+console.log(mensaje); // ‘¡Hola Coder!’
+console.log(bandera); // ‘true’
+console.log(numero);  // ‘20’
 }
