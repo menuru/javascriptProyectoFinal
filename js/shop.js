@@ -57,6 +57,24 @@ function shop() {
   whatsappButtonJS.append(wspButton);
 }
 
+// Cart Working JS
+if (document.readyState == "loading") {
+  document.addEventListener("DOMContentLoaded", ready);
+} else {
+  ready();
+}
 
-{/* <a href="https://api.whatsapp.com/send/?phone=xxxx&text=Hola, me gustaría saber si aún tienen stock de este producto: {producto.nombre}"
-    target="_blank" class="menu"> <i class="fi-rr-smartphone"></i> Contactanos</a> */}
+function ready() {
+  // Reomve Items From Cart
+  var removeCartButton = document.getElementsByClassName("cart-remove");
+  console.log(removeCartButton);
+  for (var i = 0; i < removeCartButton.length; i++) {
+    var button = removeCartButton[i];
+    button.addEventListener("click", removeCartItem);
+  }
+}
+
+function removeCartItem(event) {
+  var buttonClicked = event.target;
+  buttonClicked.parentElement.remove();
+}
