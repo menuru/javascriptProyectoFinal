@@ -1,7 +1,10 @@
 function shop() {
   mostrarProductos();
 
+
+  // swal de ofertas
   const nodoBtnOfertas = document.querySelector("#btnOfertas");
+
 
   nodoBtnOfertas.addEventListener("click", () => {
     Swal.fire("¡Lo siento!", "Aún no tenemos ofertas para tí...", "info");
@@ -33,6 +36,7 @@ function shop() {
     });
   }
 
+  // Cotización del dolar en pesos uruguayos.
   var containerUYUPrice = document.getElementById("cotizacion");
   fetch("https://cotizaciones-brou.herokuapp.com/api/currency/latest/")
     .then((response) => response.json())
@@ -41,7 +45,7 @@ function shop() {
 
       var precioTotal = precioVenta * parseFloat(productos[0].precio);
 
-      console.log(precioTotal);
+      // console.log(precioTotal); // Para verificar que realmente esté funcionando la lógica de calcular el valor en pesos uruguayos
 
       const venta = document.createElement("div");
       venta.innerHTML = `<h5>Valor del dolar actualmente:</h5><p class='price'>UY $${precioVenta}</p>`;
@@ -49,6 +53,8 @@ function shop() {
       cotizacion.append(venta);
     });
 
+
+    // Acá quise realizar un link personalizado que tendría que tomar los valores del array del carrito para poder modificar los producto.nombre para realizar la consulta
   var whatsappButtonJS = document.getElementById("whatsappButton");
   const wspButton = document.createElement("a");
   wspButton.innerHTML = `<a href="https://api.whatsapp.com/send/?phone=xxxx&text=Hola, me gustaría saber si aún tienen stock de este producto: ${productos[0].nombre}"
@@ -65,7 +71,7 @@ if (document.readyState == "loading") {
 }
 
 function ready() {
-  // Reomve Items From Cart
+  // Remove Items From Cart
   var removeCartButton = document.getElementsByClassName("cart-remove");
   console.log(removeCartButton);
   for (var i = 0; i < removeCartButton.length; i++) {
@@ -78,3 +84,17 @@ function removeCartItem(event) {
   var buttonClicked = event.target;
   buttonClicked.parentElement.remove();
 }
+
+
+// Cart
+let cartIcon=document.querySelector("#cart-icon");
+let cart=document.querySelector(".cart");
+let closeCart=document.querySelector("#close-cart");
+// Open Cart
+cartIcon.onclick=()=>{
+  cart.classList.add("active");
+};
+// Close Cart
+closeCart.onclick=()=>{
+  cart.classList.remove("active");
+};
