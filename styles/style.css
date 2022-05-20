@@ -63,6 +63,7 @@ a.tienda {
     padding: 3vh;
     text-decoration: none;
     border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
     font-size: 3vh;
     font-variant-caps: petite-caps;
     color: white;
@@ -79,7 +80,7 @@ a {
 }
 
 a.tienda:hover {
-    background-color: rgb(89, 0, 255);
+    background-color: rgba(0, 0, 0, 0.455);
     color: white;
 }
 
@@ -107,7 +108,7 @@ img {
     border-bottom: 10px solid black;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-
+    margin-bottom: 20px;
 }
 
 .containerShop::backdrop {
@@ -150,6 +151,7 @@ nav {
     font-variant-caps: petite-caps;
     transition-duration: 0.4s;
     user-select: none;
+    cursor: pointer;
 }
 
 .menu:hover {
@@ -278,6 +280,10 @@ nav {
     color: rgb(0, 255, 0);
 }
 
+#cart-button{
+    cursor: pointer;
+}
+
 .cart {
     position: fixed;
     top: 0;
@@ -291,7 +297,7 @@ nav {
 .cart {
     position: fixed;
     top: 0;
-    right: -360px;
+    right: -365px;
     width: 360px;
     min-height: 100vh;
     padding: 20px;
@@ -304,6 +310,10 @@ nav {
 
 .cart.active {
     right: 0;
+}
+
+.cart.active::before{
+    filter: blur(2px, 2px, 2px, 2px);
 }
 
 .cart-quantity{
