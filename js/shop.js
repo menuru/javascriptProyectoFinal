@@ -1,3 +1,4 @@
+
 function shop() {
   mostrarProductos();
 
@@ -6,19 +7,28 @@ function shop() {
   ofertasAvailable = localStorage.getItem('ofertas');
 
   if (ofertasAvailable == 'true'){
+
     nodoBtnOfertas.addEventListener("click", () => {
       console.log('dentro de click ' +localStorage.getItem('ofertas'))
-      Swal.fire("Pshhh!", "Utiliza nuestro código coderhouse para conseguir un descuentito :D", "info");
+      Swal.fire("Pshhh!", "Utiliza nuestro código \"coderhouse\" para conseguir un descuentito :D", "info");
       localStorage.setItem('ofertas', false);
     });
   }
   else if (ofertasAvailable == 'false'){
+    Toastify({
+      text: "Presiona \"Ofertas\", luego de presionar el botón de ofertas, tocar F5 y volver a tocar el botón.",
+      className: "info",
+      style: {
+        background: "linear-gradient(to right, #2f89ff, #000000)",
+      }
+    }).showToast();
+  
     nodoBtnOfertas.addEventListener("click", () => {
       Swal.fire("¡Lo siento!", "Aún no tenemos ofertas para tí...", "info");
       localStorage.setItem('ofertas', true);
     });
-    
   }
+
 
 
   //Cargar productos en tienda
