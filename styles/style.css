@@ -496,16 +496,17 @@ nav {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .menuSectionText{
         display: none;
     }
     .container {
-        width: 100%;
+        width: 85%;
     }
     a.menu{
         margin: 5px;
         font-size: 18px;
+
     }
   }
   
