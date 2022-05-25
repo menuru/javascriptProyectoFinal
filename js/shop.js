@@ -3,11 +3,25 @@ function shop() {
 
   // swal de ofertas
   const nodoBtnOfertas = document.querySelector("#btnOfertas");
+  ofertasAvailable = localStorage.getItem('ofertas');
 
-  nodoBtnOfertas.addEventListener("click", () => {
-    Swal.fire("¡Lo siento!", "Aún no tenemos ofertas para tí...", "info");
-  });
+  if (ofertasAvailable == 'true'){
+    nodoBtnOfertas.addEventListener("click", () => {
+      console.log('dentro de click ' +localStorage.getItem('ofertas'))
+      Swal.fire("Pshhh!", "Utiliza nuestro código coderhouse para conseguir un descuentito :D", "info");
+      localStorage.setItem('ofertas', false);
+    });
+  }
+  else if (ofertasAvailable == 'false'){
+    nodoBtnOfertas.addEventListener("click", () => {
+      Swal.fire("¡Lo siento!", "Aún no tenemos ofertas para tí...", "info");
+      localStorage.setItem('ofertas', true);
+    });
+    
+  }
 
+
+  //Cargar productos en tienda
   function mostrarProductos() {
     var containerShop = document.getElementById("shopProducts");
 
@@ -141,17 +155,5 @@ function shop() {
 
 
 
-
-  localStorage.setItem('bienvenida', '¡Hola Code!');
-  localStorage.setItem('esValido', true);
-  localStorage.setItem('unNumero', 20);
-
-
-  let mensaje =  localStorage.getItem('bienvenida');
-  let bandera =  localStorage.getItem('esValido');
-  let numero  =  localStorage.getItem('unNumero');
-
-console.log(mensaje); // ‘¡Hola Coder!’
-console.log(bandera); // ‘true’
-console.log(numero);  // ‘20’
+  
 }

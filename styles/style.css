@@ -164,6 +164,16 @@ nav {
     font-size: 1.5rem;
 }
 
+.cart-remove{
+    position: relative;
+    cursor: pointer;
+    padding: 0px;
+    margin: 0px;
+}
+
+.cart-remove:hover{
+    color: rgb(255, 88, 88);
+}
 
 
 #close-cart {
@@ -312,9 +322,6 @@ nav {
     right: 0;
 }
 
-.cart.active::before{
-    filter: blur(2px, 2px, 2px, 2px);
-}
 
 .cart-quantity{
     border:1px solid var(-- text-color);
@@ -341,7 +348,7 @@ nav {
 
 .cart-box {
     display: grid;
-    grid-template-columns: 32% 50% 18%;
+    grid-template-columns: 32% 50% 2%;
     align-items: center;
     gap: 1rem;
     margin-top: 1rem;
