@@ -185,6 +185,17 @@ nav {
     cursor: pointer;
 }
 
+.claim-code-text{
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+#claim-code{
+    margin-top: 5px;
+    width: 100%;
+    text-align: center;
+}
+
 
 
 .section-title {
@@ -485,12 +496,19 @@ nav {
 }
 
 
-
-
-
-
-
-
+@media (max-width: 600px) {
+    .menuSectionText{
+        display: none;
+    }
+    .container {
+        width: 100%;
+    }
+    a.menu{
+        margin: 5px;
+        font-size: 18px;
+    }
+  }
+  
 /* Animaciones */
 
 @keyframes lighting {

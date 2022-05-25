@@ -10,7 +10,7 @@ function shop() {
 
     nodoBtnOfertas.addEventListener("click", () => {
       console.log('dentro de click ' +localStorage.getItem('ofertas'))
-      Swal.fire("Pshhh!", "Utiliza nuestro código \"coderhouse\" para conseguir un descuentito :D", "info");
+      Swal.fire("Pshhh!", "Utiliza nuestro código \"coderhouse\" en el carrito para conseguir un descuento.", "info");
       localStorage.setItem('ofertas', false);
     });
   }
@@ -76,7 +76,7 @@ function shop() {
   var whatsappButtonJS = document.getElementById("whatsappButton");
   const wspButton = document.createElement("a");
   wspButton.innerHTML = `<a href="https://api.whatsapp.com/send/?phone=xxxx&text=Hola, me gustaría saber si aún tienen stock de este producto: ${productos[0].nombre}"
-  target="_blank" class="menu"> <i class="fi-rr-smartphone"></i> Contactanos</a> `;
+  target="_blank" class="menu"> <i class="fi-rr-smartphone"></i><span class="menuSectionText">Contactanos</span></a>`;
 
   whatsappButtonJS.append(wspButton);
 
