@@ -220,8 +220,6 @@ nav {
     background-color: #0000003d;
 }
 
-
-
 .product-box {
     width: 225px;
     /* Card width. */
@@ -328,6 +326,7 @@ nav {
     z-index: 1;
     transition: 0.4s;
 }
+
 
 
 .cart.active {
@@ -456,6 +455,10 @@ nav {
     margin-left: 10px;
     user-select: none;
     z-index: 20;
+}
+
+.aboutUs{
+    
 }
 
 #avatars img {

@@ -1,6 +1,7 @@
-
 function shop() {
   mostrarProductos();
+
+  console.log('No sé por qué, pero se me rompió todo lo que era el botón de Ofertas con el swal. De forma local todo funciona correctamente.')
 
   // swal de ofertas
   const nodoBtnOfertas = document.querySelector("#btnOfertas");
@@ -15,13 +16,13 @@ function shop() {
     });
   }
   else if (ofertasAvailable == 'false'){
-    // Toastify({
-    //   text: "Presiona \"Ofertas\", luego de presionar el botón de ofertas, tocar F5 y volver a tocar el botón.",
-    //   className: "info",
-    //   style: {
-    //     background: "linear-gradient(to right, #2f89ff, #000000)",
-    //   }
-    // }).showToast();
+    Toastify({
+      text: "Presiona \"Ofertas\", luego de presionar el botón de ofertas, tocar F5 y volver a tocar el botón.",
+      className: "info",
+      style: {
+        background: "linear-gradient(to right, #2f89ff, #000000)",
+      }
+    }).showToast();
     console.log('Para probar el localStorage >> Presiona \"Ofertas\", luego de presionar el botón de ofertas, tocar F5 y volver a tocar el botón. // Quise meter esto en un toastify pero me rompia todo el sitio.')
     nodoBtnOfertas.addEventListener("click", () => {
       Swal.fire("¡Lo siento!", "Aún no tenemos ofertas para tí...", "info");
